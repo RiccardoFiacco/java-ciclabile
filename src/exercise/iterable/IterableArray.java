@@ -2,12 +2,12 @@ package exercise.iterable;
 import java.lang.reflect.Array;
 import exercise.interfaces.interfaceIterable;
 
-public class Iterable implements interfaceIterable{
+public class IterableArray implements interfaceIterable{
     
     private int[] list;
     private int index;
     
-    public Iterable(int[] list){
+    public IterableArray(int[] list){
         this.list = list;
         this.index = 0;
     }
@@ -32,7 +32,7 @@ public class Iterable implements interfaceIterable{
     public int getNextElement() {
         if(index <= Array.getLength(list)){
            index+=1;
-           return list[index]; 
+           return list[index-1]; 
         }else{
             return 00;
         }  
