@@ -32,12 +32,12 @@ public class IterableArray implements interfaceIterable{
 
     public void addElement(int num){
         int[] array = new int[list.length+1];
-
+        
         for (int i = 0; i < list.length; i++) {
             array[i] = list[i];
         }
 
-        array[list.length-1] = num;
+        array[array.length-1] = num;
         list = array;
     }
 
@@ -59,5 +59,14 @@ public class IterableArray implements interfaceIterable{
          }else{
             return true;
          }  
+    }
+
+    @Override
+    public String toString() {
+        String str="";
+        for (int i : list) {
+          str += i +" "; 
+        };
+        return str;
     }
 }

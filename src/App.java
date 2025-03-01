@@ -29,6 +29,8 @@ public class App {
         boolean res1 = arrIterable.hasOtherElement(); 
         System.err.println(result1);
         System.err.println(res1);
+        arrIterable.addElement(45);
+        System.out.println(arrIterable.toString());
         
         s.close();
     }
