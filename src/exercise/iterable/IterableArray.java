@@ -6,12 +6,14 @@ public class IterableArray implements interfaceIterable{
     
     private int[] list;
     private int index;
-    
+
+    //costruttori
+    public IterableArray(){}
     public IterableArray(int[] list){
         this.list = list;
         this.index = 0;
     }
-    
+    //getter setter
     public int[] getList() {
         return list;
     }
@@ -28,6 +30,18 @@ public class IterableArray implements interfaceIterable{
         this.index = index;
     }
 
+    public void addElement(int num){
+        int[] array = new int[list.length+1];
+
+        for (int i = 0; i < list.length; i++) {
+            array[i] = list[i];
+        }
+
+        array[list.length-1] = num;
+        list = array;
+    }
+
+    //override dei metodi implementati dall'interfaccia
     @Override
     public int getNextElement() {
         if(index <= Array.getLength(list)){
