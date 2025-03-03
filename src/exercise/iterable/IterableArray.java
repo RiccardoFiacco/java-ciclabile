@@ -1,25 +1,27 @@
 package exercise.iterable;
-import java.lang.reflect.Array;
 import exercise.interfaces.interfaceIterable;
 
 public class IterableArray implements interfaceIterable{
     
-    private int[] list;
+    private int[] array;
     private int index;
 
     //costruttori
-    public IterableArray(){}
+    public IterableArray(){
+        this.index = 0; 
+    }
+
     public IterableArray(int[] list){
-        this.list = list;
+        this.array = list;
         this.index = 0;
     }
     //getter setter
     public int[] getList() {
-        return list;
+        return array;
     }
 
-    public void setList(int[] list) {
-        this.list = list;
+    public void setArray(int[] array) {
+        this.array = array;
     }
 
     public int getIndex() {
@@ -31,40 +33,40 @@ public class IterableArray implements interfaceIterable{
     }
 
     public void addElement(int num){
-        int[] array = new int[list.length+1];
+        int[] array = new int[this.array.length+1];
         
-        for (int i = 0; i < list.length; i++) {
-            array[i] = list[i];
+        for (int i = 0; i < this.array.length; i++) {
+            array[i] = this.array[i];
         }
 
         array[array.length-1] = num;
-        list = array;
+        this.array = array;
     }
 
     //override dei metodi implementati dall'interfaccia
     @Override
     public int getNextElement() {
-        if(index <= Array.getLength(list)){
+        if(index <=  this.array.length){
            index+=1;
-           return list[index-1]; 
+           return this.array[index-1]; 
         }else{
-            return 00;
+            return -1;
         }  
     }
 
     @Override
     public boolean hasOtherElement() {
-        if(index == Array.getLength(list)){
-            return false; 
-         }else{
-            return true;
-         }  
+        if(index == this.array.length){
+           return false; 
+        }else{
+           return true;
+        }  
     }
 
     @Override
     public String toString() {
         String str="";
-        for (int i : list) {
+        for (int i : array) {
           str += i +" "; 
         };
         return str;
